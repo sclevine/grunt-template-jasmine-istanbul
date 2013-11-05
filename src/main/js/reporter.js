@@ -6,17 +6,15 @@
  * @module grunt-template-jasmine-istanbul
  * @class reporter
  */
+
 (function () {
-	var reporter = new jasmine.Reporter();
-	/**
-	 * Reports the coverage variable by dispatching a message from phantom.
-	 *
-	 * @method reportRunnerResults
-	 */
-	reporter.reportRunnerResults = function () {
-		if (__coverage__) {
-			phantom.sendMessage('jasmine.coverage', __coverage__);
-		}
-	};
-	jasmine.getEnv().addReporter(reporter);
+    var istanbulReporter = function() {
+        this.jasmineDone = function () {
+            if (__coverage__) {
+                phantom.sendMessage('jasmine.coverage', __coverage__);
+            }
+        };
+    };
+
+    jasmine.getEnv().addReporter(new istanbulReporter());
 })();
