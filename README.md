@@ -1,5 +1,7 @@
 # Code coverage template mix-in for [grunt-contrib-jasmine](https://github.com/gruntjs/grunt-contrib-jasmine), using [istanbul](https://github.com/gotwarlost/istanbul)
 
+Modified to work with Jasmine 2.0 by @sclevine.
+
 ## Installation
 
 ```
